@@ -1,4 +1,8 @@
-﻿using Topshelf;
+﻿using Serilog;
+using Topshelf;
+using Vostok.Logging;
+using Vostok.Logging.Serilog;
+using Vostok.Topshelf;
 
 namespace ProjectTemplate
 {
@@ -9,7 +13,14 @@ namespace ProjectTemplate
             HostFactory.Run(x =>
             {
                 x.SetServiceName(Settings.ServiceName);
-                x.Service<WebApiService>();
+                Log.Logger = new LoggerConfiguration()
+                    .Enrich.FromLogContext()
+                    .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level} {Message:l} {Exception}{NewLine}{Properties}{NewLine}")
+                    .CreateLogger();
+                var log = new SerilogLog(Log.Logger)
+                    .WithContext();
+                x.UseVostokLogging(log);
+                x.Service(settings => new WebApiService(log));
             });
         }
     }
