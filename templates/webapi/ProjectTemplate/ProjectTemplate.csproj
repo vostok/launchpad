@@ -15,11 +15,11 @@
   <ItemGroup>
     <PackageReference Include="JetBrains.Annotations" Version="10.2.1" />
     <PackageReference Include="Microsoft.AspNet.WebApi.OwinSelfHost" Version="5.2.3" />
-    <PackageReference Include="Vostok.Core" Version="1.0.0-pre000001" />
-    <PackageReference Include="Vostok.Serilog" Version="1.0.0-pre000001" />
-    <PackageReference Include="Vostok.Topshelf" Version="1.0.0-pre000001" />
-    <PackageReference Include="Vostok.WebApi" Version="1.0.0-pre000001" />
     <PackageReference Include="Serilog.Sinks.Console" version="3.0.1" />
+    <PackageReference Include="Vostok.Core" Version="1.0.0-pre000001" />
+    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000001" />
+    <PackageReference Include="Vostok.Instrumentation.Topshelf" Version="1.0.0-pre000001" />
+    <PackageReference Include="Vostok.Instrumentation.WebApi" Version="1.0.0-pre000001" />
   </ItemGroup>
 
 </Project>
