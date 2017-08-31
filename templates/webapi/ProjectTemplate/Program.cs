@@ -1,8 +1,8 @@
 ﻿using Serilog;
 using Topshelf;
+using Vostok.Instrumentation.Topshelf;
 using Vostok.Logging;
 using Vostok.Logging.Serilog;
-using Vostok.Topshelf;
 
 namespace ProjectTemplate
 {

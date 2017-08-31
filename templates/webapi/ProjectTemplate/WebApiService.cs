@@ -3,8 +3,8 @@ using JetBrains.Annotations;
 using Microsoft.Owin.Hosting;
 using Owin;
 using Topshelf;
+using Vostok.Instrumentation.WebApi;
 using Vostok.Logging;
-using Vostok.WebApi;
 
 namespace ProjectTemplate
 {
