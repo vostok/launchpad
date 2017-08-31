@@ -4,12 +4,7 @@
     <TargetFramework>net461</TargetFramework>
     <OutputType>Exe</OutputType>
     <AssemblyName>ProjectTemplate</AssemblyName>
-    <Authors>Vostok team</Authors>
-    <Company>SKB Kontur</Company>
-    <Product>Vostok</Product>
     <RootNamespace>ProjectTemplate</RootNamespace>
-    <ApplicationIcon />
-    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
