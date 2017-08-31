@@ -1,12 +1,25 @@
 ﻿using System;
+using CommandLine;
 
 namespace Launchpad
 {
-    class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            AppDomain.CurrentDomain.UnhandledException += (s, e) =>
+            {
+                Console.Error.WriteLine(e.ExceptionObject);
+                Environment.Exit(-1);
+            };
+            Parser.Default.ParseArguments<Options>(args)
+                .MapResult(
+                    opts =>
+                    {
+                        new ProjectCopier(opts).Execute();
+                        return 0;
+                    },
+                    errs => 1);
         }
     }
 }
