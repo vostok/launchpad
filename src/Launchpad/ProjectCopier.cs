@@ -16,7 +16,7 @@ namespace Launchpad
         public ProjectCopier(Options options)
         {
             this.options = options;
-            sourceDirectory = Helpers.PatchDirectoryName(Path.Combine("templates", "webapi"));
+            sourceDirectory = Helpers.PatchDirectoryName(Path.Combine("templates", options.Template));
             targetDirectory = Path.Combine(options.Output, options.ProjectName);
         }
 
