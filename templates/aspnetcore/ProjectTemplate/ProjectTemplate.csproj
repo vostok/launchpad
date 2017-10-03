@@ -6,10 +6,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.1.0" />
     <PackageReference Include="Serilog.Sinks.Console" version="3.0.1" />
-    <PackageReference Include="Vostok.Core" Version="1.0.0-pre000029" />
-    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000008" />
-    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000005" />
+    <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+    <PackageReference Include="Vostok.Core" Version="1.0.0-pre000092" />
+    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000015" />
+    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000031" />
   </ItemGroup>
 
   <ItemGroup>

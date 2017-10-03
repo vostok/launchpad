@@ -13,11 +13,13 @@ namespace ProjectTemplate
         public static void Main(string[] args)
         {
             Log.Logger = new LoggerConfiguration()
-                .Enrich.FromLogContext()
+                .Enrich.WithHost()
+                .Enrich.WithProperty("ServiceName", Settings.ServiceName)
+                .WriteTo.Async(x => x.RollingFile("log-{Date}.txt", outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level} {Message:l} {Exception}{NewLine}{Properties}{NewLine}"))
                 .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level} {Message:l} {Exception}{NewLine}{Properties}{NewLine}")
                 .CreateLogger();
             var log = new SerilogLog(Log.Logger)
-                .WithContext();
+                .WithFlowContext();
             new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls(Settings.ListenPrefix)
@@ -31,6 +33,7 @@ namespace ProjectTemplate
                 })
                 .Build()
                 .Run();
+            Log.CloseAndFlush();
         }
     }
 }
