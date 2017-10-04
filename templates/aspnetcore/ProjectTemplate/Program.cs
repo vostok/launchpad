@@ -12,28 +12,43 @@ namespace ProjectTemplate
     {
         public static void Main(string[] args)
         {
-            Log.Logger = new LoggerConfiguration()
-                .Enrich.WithHost()
-                .Enrich.WithProperty("ServiceName", Settings.ServiceName)
-                .WriteTo.Async(x => x.RollingFile("log-{Date}.txt", outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level} {Message:l} {Exception}{NewLine}{Properties}{NewLine}"))
-                .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level} {Message:l} {Exception}{NewLine}{Properties}{NewLine}")
-                .CreateLogger();
-            var log = new SerilogLog(Log.Logger)
-                .WithFlowContext();
             new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls(Settings.ListenPrefix)
-                .ConfigureLogging(builder => builder.AddVostok(log))
-                .ConfigureServices(collection => collection.AddMvc())
+                .ConfigureLogging(logging =>
+                {
+                    const string outputTemplate =
+                        "{Timestamp:HH:mm:ss.fff} {Level} {Message:l} {Exception}{NewLine}{Properties}{NewLine}";
+
+                    Log.Logger = new LoggerConfiguration()
+                        .Enrich.WithHost()
+                        .Enrich.WithProperty("ServiceName", Settings.ServiceName)
+                        .WriteTo.Async(x => x.RollingFile("log-{Date}.txt", outputTemplate: outputTemplate))
+                        .WriteTo.Console(outputTemplate: outputTemplate)
+                        .CreateLogger();
+
+                    var log = new SerilogLog(Log.Logger)
+                        .WithFlowContext();
+
+                    logging.AddVostok(log);
+
+                    logging.Services.AddSingleton(log);
+                })
+                .ConfigureServices(services =>
+                {
+                    services.AddMvc();
+                })
                 .Configure(app =>
                 {
-                    app.UseVostok(log);
+                    app.UseVostok();
                     app.UseDeveloperExceptionPage();
                     app.UseMvc();
+
+                    var applicationLifetime = app.ApplicationServices.GetRequiredService<IApplicationLifetime>();
+                    applicationLifetime.ApplicationStopping.Register(Log.CloseAndFlush);
                 })
                 .Build()
                 .Run();
-            Log.CloseAndFlush();
         }
     }
 }
