@@ -1,7 +1,7 @@
 ﻿using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProjectTemplate
+namespace ProjectTemplate.Controllers
 {
     [Route("")]
     public class HomeController : Controller
