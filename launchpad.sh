@@ -1,5 +1,7 @@
 #!/bin/bash
 
+pushd "${0%/*}" > /dev/null
+
 EXEC=./bin/Launchpad.dll
 
 if ! [ -f "$EXEC" ]
@@ -8,3 +10,5 @@ then
 fi
 
 dotnet $EXEC $*
+
+popd > /dev/null
