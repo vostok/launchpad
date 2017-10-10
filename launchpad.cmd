@@ -1,7 +1,7 @@
 @ECHO OFF
 
-IF NOT EXIST %~dp0src\Launchpad\bin\Release\net461\Launchpad.exe (
-	CALL powershell .\build.ps1 || EXIT /B 1
+IF NOT EXIST %~dp0bin\Launchpad.dll (
+	CALL dotnet publish -c Release -o ..\..\bin\ src\Launchpad\Launchpad.csproj  || EXIT /B 1
 )
 
-%~dp0src\Launchpad\bin\Release\net461\Launchpad.exe %*
+%~dp0dotnet bin\Launchpad.dll %*
