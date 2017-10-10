@@ -1,14 +1,11 @@
 #!/bin/bash
 
-pushd "${0%/*}" > /dev/null
-
-EXEC=./bin/Launchpad.dll
+EXEC="${0%/*}/bin/Launchpad.dll"
+PROJECT="${0%/*}/src/Launchpad/Launchpad.csproj"
 
 if ! [ -f "$EXEC" ]
 then
-  dotnet publish -c Release -o ../../bin/ src/Launchpad/Launchpad.csproj
+  dotnet publish -c Release -o ../../bin/ $PROJECT
 fi
 
 dotnet $EXEC $*
-
-popd > /dev/null
