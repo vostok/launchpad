@@ -24,6 +24,8 @@ namespace ProjectTemplate
                 })
                 .Configure(app =>
                 {
+                    app.UseVostok();
+                    app.UseDeveloperExceptionPage();
                     app.UseMvc();
                 })
                 .Build()
