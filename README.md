@@ -2,7 +2,7 @@
 
 CLI control application for Vostok-instrumented applications.
 
-## Get started
+## Get Started
 
 [.NET Core 2 SDK](https://www.microsoft.com/net/core) is a prerequisite. Check that you have `dotnet` in your `PATH`:
 
