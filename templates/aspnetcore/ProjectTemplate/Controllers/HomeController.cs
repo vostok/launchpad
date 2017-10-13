@@ -1,5 +1,6 @@
 ﻿using Microsoft.ApplicationInsights.AspNetCore.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Vostok.Tracing;
 
 namespace ProjectTemplate.Controllers
 {
