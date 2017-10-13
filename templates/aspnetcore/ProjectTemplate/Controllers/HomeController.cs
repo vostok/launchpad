@@ -9,7 +9,11 @@ namespace ProjectTemplate.Controllers
         [HttpGet("{*url}")]
         public object Echo()
         {
-            return Json(new {url = Request.GetUri()});
+            return Json(new
+            {
+                url = Request.GetUri(),
+                traceId = $"http://localhost:80/{TraceContext.Current.TraceId}"
+            });
         }
     }
 }
