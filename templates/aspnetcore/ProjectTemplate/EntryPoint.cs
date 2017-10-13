@@ -12,7 +12,7 @@ namespace ProjectTemplate
         {
             new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls("http://+:33333/")
+                .UseUrls("http://*:33333/")
                 .ConfigureAppConfiguration((hostingContext, config) =>
                 {
                     config.AddJsonFile("appsettings.json", false, true);
