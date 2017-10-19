@@ -1,7 +1,7 @@
 ﻿using System;
 using System.IO;
 
-namespace Launchpad
+namespace Launchpad.Create
 {
     internal static class Helpers
     {

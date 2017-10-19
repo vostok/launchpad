@@ -1,5 +1,6 @@
 ﻿using System;
 using CommandLine;
+using Launchpad.Create;
 
 namespace Launchpad
 {
@@ -12,11 +13,13 @@ namespace Launchpad
                 Console.Error.WriteLine(e.ExceptionObject);
                 Environment.Exit(-1);
             };
-            Parser.Default.ParseArguments<Options>(args)
+
+            Parser.Default.ParseArguments<CreateOptions>(args)
                 .MapResult(
-                    opts =>
+                    (CreateOptions opts) =>
                     {
                         new ProjectCopier(opts).Execute();
+                        Console.Out.WriteLine($"Project {opts.ProjectName} created in '{opts.Output}' directory.");
                         return 0;
                     },
                     errs => 1);

@@ -2,22 +2,22 @@ using System;
 using System.IO;
 using System.Linq;
 
-namespace Launchpad
+namespace Launchpad.Create
 {
     internal class ProjectCopier
     {
         private static readonly string[] ignoredDirectories = {"bin", "obj", ".vs"};
         private const string templateProjectName = "ProjectTemplate";
 
-        private readonly Options options;
+        private readonly CreateOptions createOptions;
         private readonly string sourceDirectory;
         private readonly string targetDirectory;
 
-        public ProjectCopier(Options options)
+        public ProjectCopier(CreateOptions createOptions)
         {
-            this.options = options;
-            sourceDirectory = Helpers.PatchDirectoryName(Path.Combine("templates", options.Template));
-            targetDirectory = Path.Combine(options.Output, options.ProjectName);
+            this.createOptions = createOptions;
+            sourceDirectory = Helpers.PatchDirectoryName(Path.Combine("templates", createOptions.Template));
+            targetDirectory = Path.Combine(createOptions.Output, createOptions.ProjectName);
         }
 
         public void Execute()
@@ -42,7 +42,7 @@ namespace Launchpad
         private string GetTargetDirectoryName(string subDirName)
         {
             if (string.Equals(subDirName, templateProjectName, StringComparison.OrdinalIgnoreCase))
-                return options.ProjectName;
+                return createOptions.ProjectName;
             return subDirName;
         }
 
@@ -52,7 +52,7 @@ namespace Launchpad
             using (var writer = new StreamWriter(Path.Combine(targetDir.FullName, GetTargetFileName(file.Name))))
             {
                 var content = reader.ReadToEnd();
-                var patchedContent = content.Replace(templateProjectName, options.ProjectName);
+                var patchedContent = content.Replace(templateProjectName, createOptions.ProjectName);
                 writer.Write(patchedContent);
             }
         }
@@ -61,7 +61,7 @@ namespace Launchpad
         {
             var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
             if (string.Equals(fileNameWithoutExtension, templateProjectName, StringComparison.OrdinalIgnoreCase))
-                return options.ProjectName + Path.GetExtension(fileName);
+                return createOptions.ProjectName + Path.GetExtension(fileName);
             return fileName;
         }
     }
