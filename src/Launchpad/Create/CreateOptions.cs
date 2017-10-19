@@ -16,7 +16,7 @@ namespace Launchpad.Create
         [Option('t', "template", HelpText = "Template to use.", Default = "aspnetcore")]
         public string Template { get; set; }
 
-        [Usage(ApplicationAlias = "launchpad")]
+        [Usage(ApplicationAlias = "vostok")]
         public static IEnumerable<Example> Examples
         {
             get { yield return new Example("Create ASP.NET Core 2 application named MyFirstProject in 'output' directory", new CreateOptions {ProjectName = "MyFirstProject"}); }
