@@ -16,7 +16,7 @@ Clone this repository. Two scripts will be available to you: `launchpad.cmd` for
 Right now, Launchpad is capable of creating a boilerplate C# project:
 
 ```
-$ ./launchpad.sh --name TestProject
+$ ./launchpad.sh create --name TestProject
 
 $ tree output/TestProject
 output/TestProject
