@@ -11,12 +11,12 @@ $ dotnet --version
 2.0.0
 ```
 
-Clone this repository. Two scripts will be available to you: `launchpad.cmd` for Windows and `launchpad.sh` for *nix. Platform-independent libraries will be built on first launch automatically.
+Clone this repository. Two scripts will be available to you: `vostok.cmd` for Windows and `vostok.sh` for *nix. Platform-independent libraries will be built on first launch automatically.
 
 Right now, Launchpad is capable of creating a boilerplate C# project:
 
 ```
-$ ./launchpad.sh --name TestProject
+$ ./vostok.sh create --name TestProject
 
 $ tree output/TestProject
 output/TestProject
