@@ -35,7 +35,7 @@ namespace Launchpad.Create
         private static string FixNamespace(string projectName)
         {
             projectName = projectName.Substring(0, 1).ToUpperInvariant() + projectName.Substring(1);
-            return new string(projectName.Where(c => c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == '.').ToArray());
+            return new string(projectName.SkipWhile(c => c >= '0' && c <= '9').Where(c => c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == '.' || c >= '0' && c <= '9').ToArray());
         }
 
         private void CopyDirectory(DirectoryInfo sourceDir, DirectoryInfo targetDir)
