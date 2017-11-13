@@ -16,6 +16,7 @@ namespace Launchpad.Create
         public ProjectCopier(CreateOptions createOptions)
         {
             this.createOptions = createOptions;
+            createOptions.ProjectName = FixNamespace(createOptions.ProjectName);
             sourceDirectory = Helpers.PatchDirectoryName(Path.Combine("templates", createOptions.Template));
             targetDirectory = Path.Combine(createOptions.Output, createOptions.ProjectName);
         }
@@ -29,6 +30,12 @@ namespace Launchpad.Create
             if (!targetDir.Exists)
                 targetDir.Create();
             CopyDirectory(sourceDir, targetDir);
+        }
+
+        private static string FixNamespace(string projectName)
+        {
+            projectName = projectName.Substring(0, 1).ToUpperInvariant() + projectName.Substring(1);
+            return new string(projectName.Where(c => c >= 'a' && c <= 'z' || c >= 'A' && c <= 'Z' || c == '.').ToArray());
         }
 
         private void CopyDirectory(DirectoryInfo sourceDir, DirectoryInfo targetDir)
