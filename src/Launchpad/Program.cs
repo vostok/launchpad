@@ -19,7 +19,7 @@ namespace Launchpad
                     (CreateOptions opts) =>
                     {
                         new ProjectCopier(opts).Execute();
-                        Console.Out.WriteLine($"Project {opts.ProjectName} created in '{opts.Output}' directory.");
+                        Console.Out.WriteLine($"Project {opts.ServiceName} created in '{opts.Output}' directory.");
                         return 0;
                     },
                     errs => 1);

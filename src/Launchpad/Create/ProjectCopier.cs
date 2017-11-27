@@ -8,6 +8,8 @@ namespace Launchpad.Create
     {
         private static readonly string[] ignoredDirectories = {"bin", "obj", ".vs"};
         private const string templateProjectName = "ProjectTemplate";
+        private const string templateProjectMacro = "%project%";
+        private const string templateServiceMacro = "%service%";
 
         private readonly CreateOptions createOptions;
         private readonly string sourceDirectory;
@@ -16,9 +18,9 @@ namespace Launchpad.Create
         public ProjectCopier(CreateOptions createOptions)
         {
             this.createOptions = createOptions;
-            createOptions.ProjectName = FixNamespace(createOptions.ProjectName);
+            createOptions.ServiceName = FixNamespace(createOptions.ServiceName);
             sourceDirectory = Helpers.PatchDirectoryName(Path.Combine("templates", createOptions.Template));
-            targetDirectory = Path.Combine(createOptions.Output, createOptions.ProjectName);
+            targetDirectory = Path.Combine(createOptions.Output, createOptions.ServiceName);
         }
 
         public void Execute()
@@ -49,7 +51,7 @@ namespace Launchpad.Create
         private string GetTargetDirectoryName(string subDirName)
         {
             if (string.Equals(subDirName, templateProjectName, StringComparison.OrdinalIgnoreCase))
-                return createOptions.ProjectName;
+                return createOptions.ServiceName;
             return subDirName;
         }
 
@@ -59,7 +61,9 @@ namespace Launchpad.Create
             using (var writer = new StreamWriter(Path.Combine(targetDir.FullName, GetTargetFileName(file.Name))))
             {
                 var content = reader.ReadToEnd();
-                var patchedContent = content.Replace(templateProjectName, createOptions.ProjectName);
+                var patchedContent = content.Replace(templateProjectName, createOptions.ServiceName);
+                patchedContent = patchedContent.Replace(templateProjectMacro, createOptions.ProjectName);
+                patchedContent = patchedContent.Replace(templateServiceMacro, createOptions.ServiceName);
                 writer.Write(patchedContent);
             }
         }
@@ -68,7 +72,7 @@ namespace Launchpad.Create
         {
             var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
             if (string.Equals(fileNameWithoutExtension, templateProjectName, StringComparison.OrdinalIgnoreCase))
-                return createOptions.ProjectName + Path.GetExtension(fileName);
+                return createOptions.ServiceName + Path.GetExtension(fileName);
             return fileName;
         }
     }
