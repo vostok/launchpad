@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Vostok.Instrumentation.AspNetCore;
+﻿using Microsoft.Extensions.Configuration;
+using Vostok.Hosting;
+using Vostok.Logging;
+using Vostok.Logging.Logs;
 
 namespace ProjectTemplate
 {
@@ -10,26 +9,21 @@ namespace ProjectTemplate
     {
         public static void Main(string[] args)
         {
-            new WebHostBuilder()
-                .UseKestrel()
-                .UseUrls("http://*:33333/")
-                .ConfigureAppConfiguration((hostingContext, config) =>
+            BuildVostokHost(new ConsoleLog(), args).Run();
+        }
+
+        private static IVostokHost BuildVostokHost(ILog hostLog, params string[] args)
+        {
+            return new VostokHostBuilder<ProjectTemplateApplication>()
+                .SetServiceInfo("%project%", "%service%")
+                .ConfigureAppConfiguration(configurationBuilder =>
                 {
-                    config.AddJsonFile("appsettings.json", false, true);
+                    configurationBuilder.AddCommandLine(args);
+                    configurationBuilder.AddEnvironmentVariables();
+                    configurationBuilder.AddJsonFile("appsettings.json");
                 })
-                .UseVostok()
-                .ConfigureServices((hostingContext, services) =>
-                {
-                    services.AddMvc();
-                })
-                .Configure(app =>
-                {
-                    app.UseVostok();
-                    app.UseDeveloperExceptionPage();
-                    app.UseMvc();
-                })
-                .Build()
-                .Run();
+                .ConfigureHost(hostConfigurator => hostConfigurator.SetHostLog(hostLog))
+                .Build();
         }
     }
 }
