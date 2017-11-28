@@ -11,8 +11,8 @@
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Vostok.Hosting" Version="1.0.0-pre000365" />
     <PackageReference Include="Vostok.Hosting.Core" Version="1.0.0-pre000365" />
-    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000123" />
-    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000123" />
+    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000124" />
+    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000124" />
   </ItemGroup>
 
   <ItemGroup>
