@@ -26,7 +26,7 @@ namespace ProjectTemplate
                 .Enrich.With<ThreadEnricher>()
                 .Enrich.With<FlowContextEnricher>()
                 .MinimumLevel.Debug()
-                .WriteTo.Airlock();
+                .WriteTo.Airlock(LogEventLevel.Information);
             if (hostingEnvironment.Configuration.GetSection("logging").GetValue<bool>("console"))
                 loggerConfiguration = loggerConfiguration.WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level:u3} [{Thread}] {Message:l}{NewLine}{Exception}", restrictedToMinimumLevel: LogEventLevel.Information);
             var logger = loggerConfiguration.CreateLogger();
