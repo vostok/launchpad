@@ -34,7 +34,7 @@ namespace ProjectTemplate
             var logger = loggerConfiguration.CreateLogger();
             return new WebHostBuilder()
                 .UseKestrel()
-                .UseUrls("http://*:33333/")
+                .UseUrls($"http://*:{hostingEnvironment.Configuration["port"]}/")
                 .AddVostokServices()
                 .UseSerilog(logger)
                 .Configure(app =>
