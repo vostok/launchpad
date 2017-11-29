@@ -29,8 +29,8 @@ namespace ProjectTemplate
                 .Enrich.With<FlowContextEnricher>()
                 .MinimumLevel.Debug()
                 .WriteTo.Airlock(LogEventLevel.Information);
-            if (hostingEnvironment.Configuration.GetSection("logging").GetValue<bool>("console"))
-                loggerConfiguration = loggerConfiguration.WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level:u3} [{Thread}] {Message:l}{NewLine}{Exception}", restrictedToMinimumLevel: LogEventLevel.Information);
+            if (hostingEnvironment.Log != null)
+                loggerConfiguration = loggerConfiguration.WriteTo.VostokLog(hostingEnvironment.Log);
             var logger = loggerConfiguration.CreateLogger();
             return new WebHostBuilder()
                 .UseKestrel()
