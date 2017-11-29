@@ -9,10 +9,10 @@
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.4.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
-    <PackageReference Include="Vostok.Hosting" Version="1.0.0-pre000365" />
-    <PackageReference Include="Vostok.Hosting.Core" Version="1.0.0-pre000365" />
-    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000124" />
-    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000124" />
+    <PackageReference Include="Vostok.Hosting" Version="1.0.0-pre000369" />
+    <PackageReference Include="Vostok.Hosting.Core" Version="1.0.0-pre000369" />
+    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000128" />
+    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000128" />
   </ItemGroup>
 
   <ItemGroup>
