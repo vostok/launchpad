@@ -13,7 +13,8 @@ namespace ProjectTemplate.Controllers
             return Json(new
             {
                 url = Request.GetUri(),
-                traceId = $"http://localhost:6301/{TraceContext.Current.TraceId}"
+                traceUrl = $"http://localhost:6301/{TraceContext.Current.TraceId}",
+                traceId = TraceContext.Current.TraceId
             });
         }
     }

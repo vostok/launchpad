@@ -49,6 +49,7 @@ namespace ProjectTemplate
                                 {
                                     thisUrl = httpContext.Request.GetDisplayUrl(),
                                     traceUrl = $"http://localhost:6301/{TraceContext.Current.TraceId}",
+                                    traceId = TraceContext.Current.TraceId
                                 }));
                         }
                     }));
