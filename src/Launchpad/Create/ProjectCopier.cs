@@ -27,8 +27,8 @@ namespace Launchpad.Create
         {
             var sourceDir = new DirectoryInfo(sourceDirectory);
             var targetDir = new DirectoryInfo(targetDirectory);
-            if (targetDir.Exists)
-                targetDir.Delete(true);
+            if (targetDir.Exists && targetDir.EnumerateFileSystemInfos().Any())
+                throw new InvalidOperationException($"Directory already exists and not empty");
             if (!targetDir.Exists)
                 targetDir.Create();
             CopyDirectory(sourceDir, targetDir);
