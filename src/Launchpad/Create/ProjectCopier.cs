@@ -70,9 +70,7 @@ namespace Launchpad.Create
 
         private string GetTargetFileName(string fileName)
         {
-            var fileNameWithoutExtension = Path.GetFileNameWithoutExtension(fileName);
-            fileNameWithoutExtension = fileNameWithoutExtension.Replace(templateProjectName, createOptions.ServiceName, StringComparison.OrdinalIgnoreCase);
-            return fileNameWithoutExtension + Path.GetExtension(fileName);
+            return fileName.Replace(templateProjectName, createOptions.ServiceName, StringComparison.OrdinalIgnoreCase);
         }
     }
 }
