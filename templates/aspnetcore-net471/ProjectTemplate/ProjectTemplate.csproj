@@ -3,9 +3,6 @@
   <PropertyGroup>
     <TargetFramework>net471</TargetFramework>
     <OutputType>Exe</OutputType>
-    
-    <!-- Workaround for tooling bug which must be fixed in VS 15.5 (see https://github.com/dotnet/standard/issues/552) -->
-    <_HasReferenceToSystemRuntime>true</_HasReferenceToSystemRuntime>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -25,10 +22,10 @@
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.4.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-    <PackageReference Include="Vostok.Hosting" Version="1.0.0-pre000370" />
-    <PackageReference Include="Vostok.Hosting.Core" Version="1.0.0-pre000370" />
-    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000129" />
-    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000129" />
+    <PackageReference Include="Vostok.Hosting" Version="1.0.0-pre000407" />
+    <PackageReference Include="Vostok.Hosting.Core" Version="1.0.0-pre000407" />
+    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000131" />
+    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000131" />
   </ItemGroup>
   
   <ItemGroup>
