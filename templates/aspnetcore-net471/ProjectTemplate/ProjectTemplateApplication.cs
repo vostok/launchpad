@@ -44,7 +44,7 @@ namespace ProjectTemplate
                         httpContext.Response.StatusCode = 200;
                         using (var sw = new StreamWriter(httpContext.Response.Body))
                         {
-                            sw.Write(JsonConvert.SerializeObject(new
+                            await sw.WriteAsync(JsonConvert.SerializeObject(new
                                 {
                                     thisUrl = httpContext.Request.GetDisplayUrl(),
                                     traceUrl = $"http://localhost:6301/{TraceContext.Current.TraceId}",

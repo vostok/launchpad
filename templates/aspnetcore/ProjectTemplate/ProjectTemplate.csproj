@@ -5,15 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.5" />
     <PackageReference Include="Serilog.AspNetCore" Version="2.1.0" />
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.4.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-    <PackageReference Include="Vostok.Hosting" Version="1.0.0-pre000370" />
-    <PackageReference Include="Vostok.Hosting.Core" Version="1.0.0-pre000370" />
-    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-pre000129" />
-    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-pre000129" />
+    <PackageReference Include="Vostok.Hosting" Version="0.0.0.468" />
+    <PackageReference Include="Vostok.Hosting.Core" Version="0.0.0.468" />
+    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="0.0.0.3" />
+    <PackageReference Include="Vostok.Logging.Serilog" Version="0.0.0.4" />
   </ItemGroup>
 
   <ItemGroup>
