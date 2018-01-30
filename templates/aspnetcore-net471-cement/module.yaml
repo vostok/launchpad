@@ -1,0 +1,18 @@
+full-build:
+
+  build:
+    target: ProjectTemplate.sln
+    configuration: Release
+    tool:
+      name: dotnet
+
+  deps:
+    - vostok.clusterclient.transport.http
+    - vostok.clusterclient
+    - vostok.airlock.client
+    - vostok.core
+    - vostok.hosting
+    - vostok.hosting.core
+    - vostok.instrumentation.aspnetcore
+    - vostok.logging.serilog
+
