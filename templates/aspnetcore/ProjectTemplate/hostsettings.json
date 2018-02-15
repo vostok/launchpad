@@ -1,11 +1,12 @@
 ﻿{
+    "project": "spaceorc",
     "port": 33333,
     "environment": "dev",
     "airlock": {
         "apiKey": "UniversalApiKey",
         "host": "http://localhost:6306"
     },
-    "hostLog": {
+    "log": {
         "console": true,
         "pathFormat": "log-{Date}.log"
     }

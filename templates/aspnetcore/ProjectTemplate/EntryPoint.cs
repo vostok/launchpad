@@ -22,17 +22,17 @@ namespace ProjectTemplate
                 {
                     configurationBuilder.AddCommandLine(args);
                     configurationBuilder.AddEnvironmentVariables();
-                    configurationBuilder.AddJsonFile("appsettings.json");
+                    configurationBuilder.AddJsonFile("hostsettings.json");
                 })
                 .ConfigureHost((context, hostConfigurator) =>
                 {
                     var loggerConfiguration = new LoggerConfiguration().MinimumLevel.Debug();
-                    if (context.Configuration.GetSection("hostLog").GetValue<bool>("console"))
+                    if (context.Configuration.GetSection("log").GetValue<bool>("console"))
                     {
                         loggerConfiguration = loggerConfiguration
                             .WriteTo.Console(outputTemplate: "{Timestamp:HH:mm:ss.fff} {Level:u3} [{Thread}] {Message:l}{NewLine}{Exception}", restrictedToMinimumLevel: LogEventLevel.Information);
                     }
-                    var pathFormat = context.Configuration.GetSection("hostLog")["pathFormat"];
+                    var pathFormat = context.Configuration.GetSection("log")["pathFormat"];
                     if (!string.IsNullOrEmpty(pathFormat))
                     {
                         loggerConfiguration = loggerConfiguration
@@ -40,10 +40,6 @@ namespace ProjectTemplate
                     }
                     var hostLog = new SerilogLog(loggerConfiguration.CreateLogger());
                     hostConfigurator.SetHostLog(hostLog);
-                })
-                .ConfigureAirlock((context, configurator) =>
-                {
-                    configurator.SetLog(context.HostingEnvironment.Log.FilterByLevel(LogLevel.Error));
                 })
                 .Build();
         }

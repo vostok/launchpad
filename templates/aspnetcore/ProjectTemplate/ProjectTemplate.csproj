@@ -10,9 +10,11 @@
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.4.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-    <PackageReference Include="Vostok.Hosting" Version="0.0.0.468" />
-    <PackageReference Include="Vostok.Hosting.Core" Version="0.0.0.468" />
-    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="0.0.0.3" />
+    <PackageReference Include="Vostok.Aitlock.Client" Version="0.0.0.9-logging" />
+    <PackageReference Include="Vostok.Hosting" Version="0.0.0.9-logging" />
+    <PackageReference Include="Vostok.Hosting.Core" Version="0.0.0.8" />
+    <PackageReference Include="Vostok.Core" Version="0.0.0.497" />
+    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="0.0.0.7-logging" />
     <PackageReference Include="Vostok.Logging.Serilog" Version="0.0.0.4" />
   </ItemGroup>
 
@@ -21,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Update="appsettings.json">
+    <Content Update="hostsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
