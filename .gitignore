@@ -287,3 +287,6 @@ tools/**
 *.odx.cs
 *.xsd.cs
 output/
+
+# VS Code
+.vscode
