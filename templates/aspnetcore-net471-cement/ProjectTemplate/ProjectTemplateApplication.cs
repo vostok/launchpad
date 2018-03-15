@@ -4,13 +4,13 @@ using Microsoft.AspNetCore.Http.Extensions;
 using Newtonsoft.Json;
 using Serilog;
 using Serilog.Events;
-using Vostok.Commons.Extensions.UnitConvertions;
-using Vostok.Hosting;
-using Vostok.Instrumentation.AspNetCore;
-using Vostok.Logging.Serilog;
-using Vostok.Logging.Serilog.Enrichers;
-using Vostok.Metrics;
-using Vostok.Tracing;
+using Vstk.Commons.Extensions.UnitConvertions;
+using Vstk.Hosting;
+using Vstk.Instrumentation.AspNetCore;
+using Vstk.Logging.Serilog;
+using Vstk.Logging.Serilog.Enrichers;
+using Vstk.Metrics;
+using Vstk.Tracing;
 
 namespace ProjectTemplate
 {
