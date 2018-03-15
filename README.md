@@ -12,7 +12,7 @@ In the future, Launchpad will be capable of controlling Vostok applications' dep
 
 ```
 $ dotnet --version
-2.0.0
+2.1.101
 ```
 
 Clone this repository:
@@ -31,18 +31,19 @@ Two scripts will be available to you:
 Create an ASP.NET Core 2.0 application:
 
 ```
-$ ./vostok.sh create --name TestProject
-Project TestProject created in 'output' directory.
+$ ./vostok.sh create --project TestProject --service MyMicroservice
+Project MyMicroservice created in 'output' directory.
 
-$ tree output/TestProject
-output/TestProject
-├── TestProject
+$ tree output/MyMicroservice
+output/MyMicroservice
+├── MyMicroservice
 │   ├── Controllers
 │   │   └── HomeController.cs
 │   ├── EntryPoint.cs
-│   ├── TestProject.csproj
+│   ├── MyMicroservice.csproj
+│   ├── MyMicroserviceApplication.cs
 │   └── appsettings.json
-├── TestProject.sln
+├── MyMicroservice.sln
 └── nuget.config
 ```
 
@@ -51,7 +52,7 @@ Platform-independent libraries are built automatically on the first run of `vost
 Tweak the code and run it either from your IDE or from command line:
 
 ```
-$ dotnet run --project output/TestProject/TestProject/TestProject.csproj
+$ dotnet run --project output/MyMicroservice/MyMicroservice/MyMicroservice.csproj
 ```
 
 By default, the application is bound to `http://[::]:33333`. It is an echo server which awaits for `GET` requests to any URI and returns back that URI and a distributed trace id:
