@@ -33,7 +33,11 @@ Create an ASP.NET Core 2.0 application:
 ```
 $ ./vostok.sh create --project TestProject --service MyMicroservice
 Project MyMicroservice created in 'output' directory.
+```
 
+This is for illustration purposes only, you don't have to install `tree`:
+
+```
 $ tree output/MyMicroservice
 output/MyMicroservice
 ├── MyMicroservice
