@@ -30,37 +30,37 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Vstk.Hosting">
+    <Reference Include="Vostok.Hosting">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.hosting\Vstk.Hosting\bin\Release\netstandard2.0\Vstk.Hosting.dll</HintPath>
+      <HintPath>..\..\vostok.hosting\Vostok.Hosting\bin\Release\netstandard2.0\Vostok.Hosting.dll</HintPath>
     </Reference>
-    <Reference Include="Vstk.Core">
+    <Reference Include="Vostok.Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.core\Vstk.Core\bin\Release\netstandard2.0\Vstk.Core.dll</HintPath>
+      <HintPath>..\..\vostok.core\Vostok.Core\bin\Release\netstandard2.0\Vostok.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Vstk.Hosting.Core">
+    <Reference Include="Vostok.Hosting.Core">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.hosting.core\Vstk.Hosting.Core\bin\Release\netstandard2.0\Vstk.Hosting.Core.dll</HintPath>
+      <HintPath>..\..\vostok.hosting.core\Vostok.Hosting.Core\bin\Release\netstandard2.0\Vostok.Hosting.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Vstk.Airlock.Client">
+    <Reference Include="Vostok.Airlock.Client">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.airlock.client\Vstk.Airlock.Client\bin\Release\netstandard2.0\Vstk.Airlock.Client.dll</HintPath>
+      <HintPath>..\..\vostok.airlock.client\Vostok.Airlock.Client\bin\Release\netstandard2.0\Vostok.Airlock.Client.dll</HintPath>
     </Reference>
-    <Reference Include="Vstk.ClusterClient">
+    <Reference Include="Vostok.ClusterClient">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.clusterclient\Vstk.ClusterClient\bin\Release\netstandard2.0\Vstk.ClusterClient.dll</HintPath>
+      <HintPath>..\..\vostok.clusterclient\Vostok.ClusterClient\bin\Release\netstandard2.0\Vostok.ClusterClient.dll</HintPath>
     </Reference>
-    <Reference Include="Vstk.ClusterClient.Transport.Http">
+    <Reference Include="Vostok.ClusterClient.Transport.Http">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.clusterclient.transport.http\Vstk.ClusterClient.Transport.Http\bin\Release\netstandard2.0\Vstk.ClusterClient.Transport.Http.dll</HintPath>
+      <HintPath>..\..\vostok.clusterclient.transport.http\Vostok.ClusterClient.Transport.Http\bin\Release\netstandard2.0\Vostok.ClusterClient.Transport.Http.dll</HintPath>
     </Reference>
-    <Reference Include="Vstk.Instrumentation.AspNetCore">
+    <Reference Include="Vostok.Instrumentation.AspNetCore">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.instrumentation.aspnetcore\Vstk.Instrumentation.AspNetCore\bin\Release\netstandard2.0\Vstk.Instrumentation.AspNetCore.dll</HintPath>
+      <HintPath>..\..\vostok.instrumentation.aspnetcore\Vostok.Instrumentation.AspNetCore\bin\Release\netstandard2.0\Vostok.Instrumentation.AspNetCore.dll</HintPath>
     </Reference>
-    <Reference Include="Vstk.Logging.Serilog">
+    <Reference Include="Vostok.Logging.Serilog">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\vstk.logging.serilog\Vstk.Logging.Serilog\bin\Release\netstandard2.0\Vstk.Logging.Serilog.dll</HintPath>
+      <HintPath>..\..\vostok.logging.serilog\Vostok.Logging.Serilog\bin\Release\netstandard2.0\Vostok.Logging.Serilog.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

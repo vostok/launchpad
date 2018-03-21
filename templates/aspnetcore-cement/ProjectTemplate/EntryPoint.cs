@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Serilog;
 using Serilog.Events;
-using Vstk.Hosting;
-using Vstk.Logging;
-using Vstk.Logging.Serilog;
+using Vostok.Hosting;
+using Vostok.Logging;
+using Vostok.Logging.Serilog;
 
 namespace ProjectTemplate
 {

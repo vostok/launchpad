@@ -7,12 +7,12 @@ full-build:
       name: dotnet
 
   deps:
-    - vstk.clusterclient.transport.http
-    - vstk.clusterclient
-    - vstk.airlock.client
-    - vstk.core
-    - vstk.hosting
-    - vstk.hosting.core
-    - vstk.instrumentation.aspnetcore
-    - vstk.logging.serilog
+    - vostok.clusterclient.transport.http
+    - vostok.clusterclient
+    - vostok.airlock.client
+    - vostok.core
+    - vostok.hosting
+    - vostok.hosting.core
+    - vostok.instrumentation.aspnetcore
+    - vostok.logging.serilog
 
