@@ -22,10 +22,10 @@
     <PackageReference Include="Serilog.Settings.Configuration" Version="2.4.0" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-    <PackageReference Include="Vostok.Hosting" Version="0.0.0.32" />
-    <PackageReference Include="Vostok.Hosting.Core" Version="0.0.0.21" />
-    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="0.0.0.13" />
-    <PackageReference Include="Vostok.Logging.Serilog" Version="0.0.0.9" />
+    <PackageReference Include="Vostok.Hosting" Version="1.0.0-beta000042" />
+    <PackageReference Include="Vostok.Hosting.Core" Version="1.0.0-beta000029" />
+    <PackageReference Include="Vostok.Instrumentation.AspNetCore" Version="1.0.0-beta000019" />
+    <PackageReference Include="Vostok.Logging.Serilog" Version="1.0.0-beta000014" />
   </ItemGroup>
   
   <ItemGroup>
