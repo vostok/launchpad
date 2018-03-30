@@ -7,6 +7,6 @@
     },
     "hostLog": {
         "console": true,
-        "pathFormat": "log-{Date}.log"
+        "logsDir": "logs"
     }
 }

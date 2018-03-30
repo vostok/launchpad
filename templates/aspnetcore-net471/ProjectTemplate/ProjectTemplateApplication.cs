@@ -1,14 +1,12 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Extensions;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
-using Serilog;
-using Serilog.Events;
 using Vostok.Commons.Extensions.UnitConvertions;
 using Vostok.Hosting;
 using Vostok.Instrumentation.AspNetCore;
-using Vostok.Logging.Serilog;
-using Vostok.Logging.Serilog.Enrichers;
 using Vostok.Metrics;
 using Vostok.Tracing;
 
@@ -23,21 +21,17 @@ namespace ProjectTemplate
 
         protected override IWebHost BuildWebHost(IVostokHostingEnvironment hostingEnvironment)
         {
-            var loggerConfiguration = new LoggerConfiguration()
-                .Enrich.With<ThreadEnricher>()
-                .Enrich.With<FlowContextEnricher>()
-                .MinimumLevel.Debug()
-                .WriteTo.Airlock(LogEventLevel.Information);
-            if (hostingEnvironment.Log != null)
-                loggerConfiguration = loggerConfiguration.WriteTo.VostokLog(hostingEnvironment.Log);
-            var logger = loggerConfiguration.CreateLogger();
             return new WebHostBuilder()
                 .UseKestrel()
                 .UseUrls($"http://*:{hostingEnvironment.Configuration["port"]}/")
                 .AddVostokServices()
-                .UseSerilog(logger)
+                .ConfigureAppConfiguration(configurationBuilder =>
+                {
+                    configurationBuilder.AddJsonFile("appsettings.json");
+                })
                 .Configure(app =>
                 {
+                    var env = app.ApplicationServices.GetRequiredService<IHostingEnvironment>();
                     app.UseVostok();
                     app.Use(next => (async httpContext =>
                     {
@@ -45,11 +39,11 @@ namespace ProjectTemplate
                         using (var sw = new StreamWriter(httpContext.Response.Body))
                         {
                             await sw.WriteAsync(JsonConvert.SerializeObject(new
-                                {
-                                    thisUrl = httpContext.Request.GetDisplayUrl(),
-                                    traceUrl = $"http://localhost:6301/{TraceContext.Current.TraceId}",
-                                    traceId = TraceContext.Current.TraceId
-                                }));
+                            {
+                                thisUrl = httpContext.Request.GetDisplayUrl(),
+                                traceUrl = $"http://localhost:6301/{TraceContext.Current.TraceId}",
+                                traceId = TraceContext.Current.TraceId
+                            }));
                         }
                     }));
                 })
